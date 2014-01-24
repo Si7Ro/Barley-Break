@@ -14,7 +14,7 @@ public class Main {
     JButton exitGame = new JButton("Выход");
     JLabel countCheckLabel = new JLabel("Кол-во ходов");
     JLabel countLabel = new JLabel("" + count);
-    
+
     public static void main(String[] args) {
 	Main game = new Main();
 	game.gui();
@@ -22,7 +22,7 @@ public class Main {
 
     public void gui() {
 
-	frame.setSize(416, 640);
+	frame.setSize(407, 630);
 	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	frame.setLayout(null);
 	startGame.setBounds(0, 450, 200, 50);
@@ -30,7 +30,6 @@ public class Main {
 	restartGame.setBounds(0, 500, 200, 50);
 	restartGame.setEnabled(false);
 	frame.getContentPane().add(restartGame);
-
 	exitGame.setBounds(0, 550, 200, 50);
 	frame.getContentPane().add(exitGame);
 	startGame.addActionListener(start);
@@ -67,10 +66,7 @@ public class Main {
 			if (h == 3) {
 			    barley[i].setBounds(x, y - 100, 100, 100);
 			}
-			System.out.println("Двигаем кнопку в координаты: "
-				+ barley[i].getX() + " : " + barley[i].getY()
-				+ " Координата пустой ячейки: "
-				+ barley[0].getX() + " : " + barley[0].getY());
+
 			if (barley[i].getLocation().equals(
 				barley[0].getLocation())) {
 
@@ -173,7 +169,6 @@ public class Main {
 	    copyx = barley[r].getX();
 	    copyy = barley[r].getY();
 	    barley[r].setBounds(x, y, 100, 100);
-
 	    barley[0].setBounds(copyx, copyy, 100, 100);
 	    count++;
 	}
