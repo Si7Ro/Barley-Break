@@ -1,10 +1,18 @@
-import java.awt.*;
+import java.awt.Component;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.*;
+import java.net.URL;
+import javax.swing.AbstractButton;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 public class Main {
     int count = 0;
+
     JFrame frame = new JFrame("Пятнашки Classic");
     Component[] barley = new Component[16];
     ActionListener handler = new action();
@@ -18,10 +26,10 @@ public class Main {
     public static void main(String[] args) {
 	Main game = new Main();
 	game.gui();
+
     }
 
     public void gui() {
-
 	frame.setSize(407, 630);
 	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	frame.setLayout(null);
@@ -178,8 +186,11 @@ public class Main {
 	int x = 0;
 	int y = 0;
 	for (int i = 0; i != 16; i++) {
-	    barley[i] = new JButton(String.valueOf(i));
+
+	    barley[i] = new JButton();
 	    ((AbstractButton) barley[i]).addActionListener(handler);
+	    URL imgi = getClass().getResource("/img/b" + i + ".png");
+	    ((AbstractButton) barley[i]).setIcon(new ImageIcon(imgi));
 	    barley[i].setBounds(x, y, 100, 100);
 	    if (x != 300) {
 		x += 100;
@@ -190,8 +201,8 @@ public class Main {
 
 	    frame.getContentPane().add(barley[i]);
 	    barley[i].setEnabled(false);
+
 	}
-	((AbstractButton) barley[0]).setText("");
 
     }
 
